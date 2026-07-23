@@ -1,0 +1,44 @@
+# .gitignore for Unity project
+
+# Unity generated files
+Library/
+Temp/
+obj/
+bin/
+*.csproj.meta
+*.sln.meta
+*.dll.meta
+
+# Build artifacts
+Build/
+build/
+
+# Logs
+*.log
+Logs/
+
+# VSCode
+.vscode/
+*.code-workspace
+
+# Rider
+.idea/
+*.sln.iml
+*.csproj.iml
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# NuGet
+packages/
+
+# Tutorial intermediate files
+Tutorial/*.meta
+
+# Sub-repositories (already exist as separate repos)
+Arch/
+Arch.Extended/
+Arch.Docs/
