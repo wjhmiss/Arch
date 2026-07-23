@@ -44,7 +44,7 @@ ECS 模式天然适合并行——同质组件数据在 Chunk 内连续存储，
 
 ### 11.3.1 JobScheduler 简介
 
-Arch 的多线程不直接用 `System.Threading.Tasks.Parallel`，而是依赖 [`Schedulers`](https://www.nuget.org/packages/Schedulers) 库提供的 `JobScheduler`。它是一个轻量级任务调度器，特点：
+Arch 的多线程不直接用 `System.Threading.Tasks.Parallel`，而是依赖 [`ZeroAllocJobScheduler`](https://www.nuget.org/packages/ZeroAllocJobScheduler) 包提供的 `JobScheduler`（命名空间 `Schedulers`）。它是一个轻量级任务调度器，特点：
 
 - 基于工作窃取（work-stealing）线程池
 - 支持 `IJob` 接口的依赖图（`JobHandle` 表达依赖关系）
@@ -101,7 +101,7 @@ World.SharedJobScheduler = null;
 
 💡 `ThreadCount = 0` 让调度器自动按逻辑处理器数决定线程数。对于游戏来说，留一个核给主线程/渲染线程通常更稳，可手动设为 `Environment.ProcessorCount - 1`。
 
-📖 更多配置项与内部实现请参考 [Schedulers 仓库](https://github.com/genaray/Schedulers)。
+📖 更多配置项与内部实现请参考 [ZeroAllocJobScheduler 仓库](https://github.com/genaray/ZeroAllocJobScheduler)。
 
 ## 11.4 并行查询 API
 

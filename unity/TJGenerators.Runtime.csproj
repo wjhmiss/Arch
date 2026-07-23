@@ -439,8 +439,20 @@
       <HintPath>Library\PackageCache\com.unity.testtools.codecoverage@1.2.6\lib\ReportGenerator\ReportGeneratorMerged.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe">
+      <HintPath>Assets\Packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.Plastic.Antlr3.Runtime">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@2.12.4\Lib\Editor\Unity.Plastic.Antlr3.Runtime.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Arch">
+      <HintPath>Assets\Plugins\Arch\Arch.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Collections.Pooled">
+      <HintPath>Assets\Packages\Collections.Pooled.2.0.0-preview.27\lib\netstandard2.1\Collections.Pooled.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="OnigwrapPlastic">
@@ -477,6 +489,10 @@
     </Reference>
     <Reference Include="Unity.VisualScripting.TextureAssets">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.9.4\Editor\VisualScripting.Core\EditorAssetResources\Unity.VisualScripting.TextureAssets.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="CommunityToolkit.HighPerformance">
+      <HintPath>Assets\Packages\CommunityToolkit.HighPerformance.8.2.2\lib\netstandard2.1\CommunityToolkit.HighPerformance.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="netstandard">

@@ -34,7 +34,7 @@
 
 1. **DLL 平台设置错误**：选中 `Arch.dll`，Inspector 中确认 `Any Platform` ✅，`Exclude Platforms` 为空
 2. **Api Compatibility Level 不对**：`Player Settings → Other → Api Compatibility Level` 必须为 `.NET Standard 2.1` 或 `.NET 4.x`
-3. **依赖 DLL 缺失**：Arch 依赖 `CommunityToolkit.HighPerformance`、`Collections.Pooled`、`Schedulers`，必须一并安装
+3. **依赖 DLL 缺失**：Arch 依赖 `CommunityToolkit.HighPerformance`、`Collections.Pooled`、`ZeroAllocJobScheduler`，必须一并安装
 
 ⚠️ 若用 NuGetForUnity，依赖会自动拉取；若手动拷贝 DLL，必须每个依赖都拷。
 

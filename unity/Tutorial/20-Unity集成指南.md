@@ -35,7 +35,7 @@ Arch 在 Unity 中的安装有三种方式，各有取舍：
 ⚠️ 以下三个问题在 Unity 中最常见：
 
 1. **API 兼容级别**：必须在 `Player Settings → Other → Api Compatibility Level` 设置为 `.NET Standard 2.1` 或 `.NET 4.x`，否则编译报 `unsafe` 错误
-2. **依赖 DLL 缺失**：Arch 依赖 `CommunityToolkit.HighPerformance`、`Collections.Pooled`、`Schedulers`，少装一个都会运行崩溃
+2. **依赖 DLL 缺失**：Arch 依赖 `CommunityToolkit.HighPerformance`、`Collections.Pooled`、`ZeroAllocJobScheduler`，少装一个都会运行崩溃
 3. **源生成器 DLL 未设为 Roslyn analyzer**：使用 `Arch.System.SourceGenerator` 时，必须在 Inspector 勾选 `Roslyn Analyzer`
 
 ## 20.3 推荐的项目结构

@@ -94,7 +94,7 @@ private static int worldSizeUnsafe;
 public static JobScheduler? SharedJobScheduler { get; set; }
 ```
 
-`JobScheduler` 来自 `Schedulers` 库，是 Arch 多线程 Job 的统一调度入口。它声明为 `static` 而非实例字段，是因为一个进程通常只需要一个调度器，所有 World 共享同一池工作线程。
+`JobScheduler` 来自 `ZeroAllocJobScheduler` 包（命名空间 `Schedulers`），是 Arch 多线程 Job 的统一调度入口。它声明为 `static` 而非实例字段，是因为一个进程通常只需要一个调度器，所有 World 共享同一池工作线程。
 
 > 📖 详见第11章《多线程与 Jobs》。
 

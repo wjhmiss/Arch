@@ -58,11 +58,13 @@ d:\Unity\Arch\
 教程采用渐进式学习路径，分为五个部分：
 
 ### 第一部分：入门篇（章节 1-3）
+
 - 安装与环境搭建
 - ECS核心概念
 - 第一个Arch程序
 
 ### 第二部分：核心篇（章节 4-8）
+
 - World世界源码解析
 - Entity实体源码解析
 - Component组件与ComponentRegistry
@@ -70,6 +72,7 @@ d:\Unity\Arch\
 - Query查询系统源码解析
 
 ### 第三部分：进阶篇（章节 9-13）
+
 - 事件系统Events
 - CommandBuffer命令缓冲
 - 多线程与Jobs
@@ -77,6 +80,7 @@ d:\Unity\Arch\
 - PureECS与性能优化
 
 ### 第四部分：扩展篇（章节 14-19）
+
 - Arch.System系统框架
 - SourceGenerator源生成器
 - Arch.LowLevel低级集合
@@ -85,6 +89,7 @@ d:\Unity\Arch\
 - Arch.EventBus事件总线
 
 ### 第五部分：实践篇（章节 20-23）
+
 - Unity集成指南
 - 最佳实践与陷阱
 - 调试技巧与工具
@@ -104,7 +109,8 @@ d:\Unity\Arch\
 
 打开 [unity/Tutorial/00-目录与导读.md](unity/Tutorial/00-目录与导读.md) 开始阅读。
 
-新手推荐路线：
+新手推荐路线： 
+
 ```
 第01章 → 第02章 → 第03章 → 第04章 → 第05章 → 第06章 → 第08章 → 第20章
 ```
@@ -149,6 +155,7 @@ d:\Unity\Arch\
 ## 致谢
 
 本教程基于以下开源项目整理：
+
 - [Arch](https://github.com/genaray/Arch) - 核心框架
 - [Arch.Extended](https://github.com/genaray/Arch.Extended) - 扩展模块
 - [Arch.Docs](https://arch-ecs.gitbook.io/arch) - 官方文档
