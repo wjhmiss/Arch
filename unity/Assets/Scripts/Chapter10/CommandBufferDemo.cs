@@ -95,7 +95,7 @@ namespace ArchUnityDemo.Chapter10
                 }
 
                 // 4) 同时用 cb 录制一个新建实体的命令（演示 CommandBuffer.Create）
-                cb.Create(new[] { typeof(Position) });
+                cb.Create(new ComponentType[] { typeof(Position) });
 
                 // 5) 统一 Playback，一次性应用到 World
                 cb.Playback(_world);

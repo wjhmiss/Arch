@@ -56,38 +56,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Analyzer Include="d:\Program Files\Microsoft Visual Studio\18\Insiders\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
-    <Analyzer Include="D:\Unity\ArchSource\unity\Assets\Packages\Microsoft.CodeAnalysis.Analyzers.5.3.0\analyzers\dotnet\vb\ru\Microsoft.CodeAnalysis.Analyzers.resources.dll" />
-    <Analyzer Include="D:\Unity\ArchSource\unity\Assets\Packages\Microsoft.CodeAnalysis.Analyzers.5.3.0\analyzers\dotnet\vb\de\Microsoft.CodeAnalysis.Analyzers.resources.dll" />
-    <Analyzer Include="D:\Unity\ArchSource\unity\Assets\Packages\Microsoft.CodeAnalysis.Analyzers.5.3.0\analyzers\dotnet\vb\tr\Microsoft.CodeAnalysis.Analyzers.resources.dll" />
-    <Analyzer Include="D:\Unity\ArchSource\unity\Assets\Packages\Microsoft.CodeAnalysis.Analyzers.5.3.0\analyzers\dotnet\cs\es\Microsoft.CodeAnalysis.Analyzers.resources.dll" />
-    <Analyzer Include="D:\Unity\ArchSource\unity\Assets\Packages\Microsoft.CodeAnalysis.Analyzers.5.3.0\analyzers\dotnet\cs\pl\Microsoft.CodeAnalysis.Analyzers.resources.dll" />
-    <Analyzer Include="D:\Unity\ArchSource\unity\Assets\Packages\Microsoft.CodeAnalysis.Analyzers.5.3.0\analyzers\dotnet\cs\cs\Microsoft.CodeAnalysis.Analyzers.resources.dll" />
-    <Analyzer Include="D:\Unity\ArchSource\unity\Assets\Packages\Microsoft.CodeAnalysis.Analyzers.5.3.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.Analyzers.dll" />
-    <Analyzer Include="D:\Unity\ArchSource\unity\Assets\Packages\Microsoft.CodeAnalysis.Analyzers.5.3.0\analyzers\dotnet\cs\ja\Microsoft.CodeAnalysis.Analyzers.resources.dll" />
-    <Analyzer Include="D:\Unity\ArchSource\unity\Assets\Packages\Microsoft.CodeAnalysis.Analyzers.5.3.0\analyzers\dotnet\vb\pl\Microsoft.CodeAnalysis.Analyzers.resources.dll" />
-    <Analyzer Include="D:\Unity\ArchSource\unity\Assets\Packages\Microsoft.CodeAnalysis.Analyzers.5.3.0\analyzers\dotnet\cs\zh-Hans\Microsoft.CodeAnalysis.Analyzers.resources.dll" />
-    <Analyzer Include="D:\Unity\ArchSource\unity\Assets\Packages\MessagePackAnalyzer.3.1.8\analyzers\roslyn4.3\cs\MessagePack.Analyzers.CodeFixes.dll" />
-    <Analyzer Include="D:\Unity\ArchSource\unity\Assets\Packages\MessagePackAnalyzer.3.1.8\analyzers\roslyn4.3\cs\MessagePack.SourceGenerator.dll" />
-    <Analyzer Include="D:\Unity\ArchSource\unity\Assets\Packages\Microsoft.CodeAnalysis.Analyzers.5.3.0\analyzers\dotnet\cs\ko\Microsoft.CodeAnalysis.Analyzers.resources.dll" />
-    <Analyzer Include="D:\Unity\ArchSource\unity\Assets\Packages\Microsoft.CodeAnalysis.Analyzers.5.3.0\analyzers\dotnet\cs\zh-Hant\Microsoft.CodeAnalysis.Analyzers.resources.dll" />
-    <Analyzer Include="D:\Unity\ArchSource\unity\Assets\Packages\Microsoft.CodeAnalysis.Analyzers.5.3.0\analyzers\dotnet\vb\cs\Microsoft.CodeAnalysis.Analyzers.resources.dll" />
-    <Analyzer Include="D:\Unity\ArchSource\unity\Assets\Packages\Microsoft.CodeAnalysis.Analyzers.5.3.0\analyzers\dotnet\vb\zh-Hant\Microsoft.CodeAnalysis.Analyzers.resources.dll" />
-    <Analyzer Include="D:\Unity\ArchSource\unity\Assets\Packages\Microsoft.CodeAnalysis.Analyzers.5.3.0\analyzers\dotnet\cs\tr\Microsoft.CodeAnalysis.Analyzers.resources.dll" />
-    <Analyzer Include="D:\Unity\ArchSource\unity\Assets\Packages\Microsoft.CodeAnalysis.Analyzers.5.3.0\analyzers\dotnet\vb\es\Microsoft.CodeAnalysis.Analyzers.resources.dll" />
-    <Analyzer Include="D:\Unity\ArchSource\unity\Assets\Packages\Microsoft.CodeAnalysis.Analyzers.5.3.0\analyzers\dotnet\vb\Microsoft.CodeAnalysis.VisualBasic.Analyzers.dll" />
-    <Analyzer Include="D:\Unity\ArchSource\unity\Assets\Packages\Microsoft.CodeAnalysis.Analyzers.5.3.0\analyzers\dotnet\vb\ja\Microsoft.CodeAnalysis.Analyzers.resources.dll" />
-    <Analyzer Include="D:\Unity\ArchSource\unity\Assets\Packages\Microsoft.CodeAnalysis.Analyzers.5.3.0\analyzers\dotnet\vb\zh-Hans\Microsoft.CodeAnalysis.Analyzers.resources.dll" />
-    <Analyzer Include="D:\Unity\ArchSource\unity\Assets\Packages\Microsoft.CodeAnalysis.Analyzers.5.3.0\analyzers\dotnet\cs\ru\Microsoft.CodeAnalysis.Analyzers.resources.dll" />
-    <Analyzer Include="D:\Unity\ArchSource\unity\Assets\Packages\Microsoft.CodeAnalysis.Analyzers.5.3.0\analyzers\dotnet\vb\Microsoft.CodeAnalysis.Analyzers.dll" />
-    <Analyzer Include="D:\Unity\ArchSource\unity\Assets\Packages\Microsoft.CodeAnalysis.Analyzers.5.3.0\analyzers\dotnet\cs\de\Microsoft.CodeAnalysis.Analyzers.resources.dll" />
-    <Analyzer Include="D:\Unity\ArchSource\unity\Assets\Packages\Microsoft.CodeAnalysis.Analyzers.5.3.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.Analyzers.dll" />
-    <Analyzer Include="D:\Unity\ArchSource\unity\Assets\Packages\Microsoft.CodeAnalysis.Analyzers.5.3.0\analyzers\dotnet\cs\fr\Microsoft.CodeAnalysis.Analyzers.resources.dll" />
-    <Analyzer Include="D:\Unity\ArchSource\unity\Assets\Packages\Microsoft.CodeAnalysis.Analyzers.5.3.0\analyzers\dotnet\cs\it\Microsoft.CodeAnalysis.Analyzers.resources.dll" />
-    <Analyzer Include="D:\Unity\ArchSource\unity\Assets\Packages\Microsoft.CodeAnalysis.Analyzers.5.3.0\analyzers\dotnet\vb\pt-BR\Microsoft.CodeAnalysis.Analyzers.resources.dll" />
-    <Analyzer Include="D:\Unity\ArchSource\unity\Assets\Packages\Microsoft.CodeAnalysis.Analyzers.5.3.0\analyzers\dotnet\vb\it\Microsoft.CodeAnalysis.Analyzers.resources.dll" />
-    <Analyzer Include="D:\Unity\ArchSource\unity\Assets\Packages\Microsoft.CodeAnalysis.Analyzers.5.3.0\analyzers\dotnet\cs\pt-BR\Microsoft.CodeAnalysis.Analyzers.resources.dll" />
-    <Analyzer Include="D:\Unity\ArchSource\unity\Assets\Packages\Microsoft.CodeAnalysis.Analyzers.5.3.0\analyzers\dotnet\vb\ko\Microsoft.CodeAnalysis.Analyzers.resources.dll" />
-    <Analyzer Include="D:\Unity\ArchSource\unity\Assets\Packages\Microsoft.CodeAnalysis.Analyzers.5.3.0\analyzers\dotnet\vb\fr\Microsoft.CodeAnalysis.Analyzers.resources.dll" />
     <Analyzer Include="D:\Unity\2022.3.62t11\Editor\Data\Tools\Unity.SourceGenerators\Unity.SourceGenerators.dll" />
     <Analyzer Include="D:\Unity\2022.3.62t11\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
