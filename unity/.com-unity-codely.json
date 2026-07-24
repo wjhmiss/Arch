@@ -1,10 +1,10 @@
 {
   "unity_port": -1,
-  "stream_port": 60214,
+  "stream_port": 55608,
   "created_date": "2026-07-20T03:55:15.421Z",
   "project_path": "D:/Unity/ArchSource/unity/Assets",
   "reloading": false,
   "reason": "unity_quit",
-  "seq": 5875,
-  "last_heartbeat": "2026-07-24T06:49:24.562Z"
+  "seq": 796,
+  "last_heartbeat": "2026-07-24T07:05:48.849Z"
 }

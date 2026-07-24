@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Arch.AOT.SourceGenerator</name>
+    </assembly>
+    <members>
+        <member name="T:Arch.AOT.SourceGenerator.ComponentType">
+            <summary>
+                The struct <see cref="T:Arch.AOT.SourceGenerator.ComponentType"/>
+            	represents an Component (Their type with meta data) for use in the generated code.
+            </summary>
+        </member>
+        <member name="P:Arch.AOT.SourceGenerator.ComponentType.TypeName">
+            <summary>
+                The type name of the component.
+            </summary>
+        </member>
+        <member name="P:Arch.AOT.SourceGenerator.ComponentType.IsZeroSize">
+            <summary>
+                If the component has zero fields.
+            </summary>
+        </member>
+        <member name="P:Arch.AOT.SourceGenerator.ComponentType.IsValueType">
+            <summary>
+                If the component is a value type.
+            </summary>
+        </member>
+        <member name="M:Arch.AOT.SourceGenerator.ComponentType.#ctor(System.String,System.Boolean,System.Boolean)">
+            <summary>
+            	Creates a new instance of the <see cref="T:Arch.AOT.SourceGenerator.ComponentType"/>.
+            </summary>
+            <param name="typeName">The type name.</param>
+            <param name="isZeroSize">If its zero sized.</param>
+            <param name="isValueType">If its a value type.</param>
+        </member>
+        <member name="T:Arch.AOT.SourceGenerator.Extensions.StringBuilderExtensions">
+            <summary>
+            	The <see cref="T:Arch.AOT.SourceGenerator.Extensions.StringBuilderExtensions"/> class
+            	adds code-generating methods to the string-builder for outsourcing them.
+            </summary>
+        </member>
+        <member name="M:Arch.AOT.SourceGenerator.Extensions.StringBuilderExtensions.AppendComponentTypes(System.Text.StringBuilder,System.Collections.Generic.IList{Arch.AOT.SourceGenerator.ComponentType})">
+            <summary>
+                Appends the component types to the string builder in the form of a generated class.
+            </summary>
+            <param name="sb">The target string builder.</param>
+            <param name="componentTypes">The types to append.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Arch.AOT.SourceGenerator.Extensions.StringBuilderExtensions.AppendComponentType(System.Text.StringBuilder,Arch.AOT.SourceGenerator.ComponentType@)">
+            <summary>
+                Appends a single component type to the string builder as a new line.
+            </summary>
+            <param name="sb">The string builder.</param>
+            <param name="componentType">The component type to add.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Arch.AOT.SourceGenerator.ComponentRegistryGenerator">
+            <summary>
+                Incremental generator that generates a class that adds all components to the ComponentRegistry.
+            </summary>
+        </member>
+        <member name="F:Arch.AOT.SourceGenerator.ComponentRegistryGenerator._componentTypes">
+            <summary>
+            	A <see cref="T:System.Collections.Generic.List`1"/> of annotated components (their types) found via the source-gen. 
+            </summary>
+        </member>
+        <member name="F:Arch.AOT.SourceGenerator.ComponentRegistryGenerator.AttributeTemplate">
+            <summary>
+            	The attribute to mark components with in order to be found by this source-gen. 
+            </summary>
+        </member>
+        <member name="M:Arch.AOT.SourceGenerator.ComponentRegistryGenerator.Initialize(Microsoft.CodeAnalysis.IncrementalGeneratorInitializationContext)">
+            <inheritdoc cref="M:Microsoft.CodeAnalysis.IIncrementalGenerator.Initialize(Microsoft.CodeAnalysis.IncrementalGeneratorInitializationContext)"/>
+        </member>
+        <member name="M:Arch.AOT.SourceGenerator.ComponentRegistryGenerator.ShouldTypeBeRegistered(Microsoft.CodeAnalysis.SyntaxNode,System.Threading.CancellationToken)">
+            <summary>
+                Determines if a node should be considered for code generation.
+            </summary>
+            <param name="node"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Arch.AOT.SourceGenerator.ComponentRegistryGenerator.GetMemberDeclarationsForSourceGen(Microsoft.CodeAnalysis.GeneratorSyntaxContext,System.Threading.CancellationToken)">
+            <summary>
+                Make sure the type is annotated with the Component attribute.
+            </summary>
+            <param name="context"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

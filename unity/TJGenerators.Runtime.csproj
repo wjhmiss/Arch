@@ -423,6 +423,10 @@
       <HintPath>D:\Unity\2022.3.62t11\Editor\Data\PlaybackEngines\WindowsStandaloneSupport\UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="System.Composition.AttributedModel">
+      <HintPath>Assets\Plugins\Arch.AOT.SourceGenerator\System.Composition.AttributedModel.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="TextMateSharpPlastic">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@2.12.4\Lib\Editor\TextMateSharp\TextMateSharpPlastic.dll</HintPath>
       <Private>False</Private>
@@ -435,12 +439,24 @@
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.9.4\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="System.Text.Encoding.CodePages">
+      <HintPath>Assets\Plugins\Arch.AOT.SourceGenerator\System.Text.Encoding.CodePages.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="CommunityToolkit.HighPerformance">
       <HintPath>Assets\Plugins\Arch.LowLevel\CommunityToolkit.HighPerformance.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.CSharp.Workspaces">
+      <HintPath>Assets\Plugins\Arch.AOT.SourceGenerator\Microsoft.CodeAnalysis.CSharp.Workspaces.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="MessagePack">
       <HintPath>Assets\Plugins\Arch.Persistence\MessagePack.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Composition.Runtime">
+      <HintPath>Assets\Plugins\Arch.AOT.SourceGenerator\System.Composition.Runtime.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Collections.Pooled">
@@ -451,12 +467,28 @@
       <HintPath>Library\PackageCache\com.unity.testtools.codecoverage@1.2.6\lib\ReportGenerator\ReportGeneratorMerged.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Microsoft.CodeAnalysis">
+      <HintPath>Assets\Plugins\Arch.AOT.SourceGenerator\Microsoft.CodeAnalysis.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe">
+      <HintPath>Assets\Plugins\Arch.LowLevel\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Reflection.Metadata">
+      <HintPath>Assets\Plugins\Arch.AOT.SourceGenerator\System.Reflection.Metadata.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Schedulers">
       <HintPath>Assets\Plugins\Arch.Relationships\Schedulers.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="System.Reflection.TypeExtensions">
+      <HintPath>Assets\Plugins\Arch.AOT.SourceGenerator\System.Reflection.TypeExtensions.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Humanizer">
-      <HintPath>Assets\Plugins\Arch.System.SourceGenerator\Humanizer.dll</HintPath>
+      <HintPath>Assets\Plugins\Arch.AOT.SourceGenerator\Humanizer.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Arch.Relationships">
@@ -467,8 +499,16 @@
       <HintPath>Library\PackageCache\com.unity.collab-proxy@2.12.4\Lib\Editor\Unity.Plastic.Antlr3.Runtime.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Arch.System.SourceGenerator">
-      <HintPath>Assets\Plugins\Arch.System.SourceGenerator\Arch.System.SourceGenerator.dll</HintPath>
+    <Reference Include="System.Collections.Immutable">
+      <HintPath>Assets\Plugins\Arch.Persistence\System.Collections.Immutable.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.IO.Pipelines">
+      <HintPath>Assets\Plugins\Arch.AOT.SourceGenerator\System.IO.Pipelines.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.CSharp">
+      <HintPath>Assets\Plugins\Arch.AOT.SourceGenerator\Microsoft.CodeAnalysis.CSharp.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="OnigwrapPlastic">
@@ -477,6 +517,10 @@
     </Reference>
     <Reference Include="Microsoft.NET.StringTools">
       <HintPath>Assets\Plugins\Arch.Persistence\Microsoft.NET.StringTools.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Composition.Convention">
+      <HintPath>Assets\Plugins\Arch.AOT.SourceGenerator\System.Composition.Convention.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Microsoft.Extensions.ObjectPool">
@@ -491,12 +535,20 @@
       <HintPath>Library\PackageCache\com.unity.collab-proxy@2.12.4\Lib\Editor\log4netPlastic.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Arch.AOT.SourceGenerator">
-      <HintPath>Assets\Plugins\Arch.AOT.SourceGenerator\Arch.AOT.SourceGenerator.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Unity.VisualScripting.IonicZip">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.9.4\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Composition.TypedParts">
+      <HintPath>Assets\Plugins\Arch.AOT.SourceGenerator\System.Composition.TypedParts.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces">
+      <HintPath>Assets\Plugins\Arch.Persistence\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.Workspaces">
+      <HintPath>Assets\Plugins\Arch.AOT.SourceGenerator\Microsoft.CodeAnalysis.Workspaces.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Arch.System">
@@ -505,6 +557,10 @@
     </Reference>
     <Reference Include="unityplastic">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@2.12.4\Lib\Editor\unityplastic.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Composition.Hosting">
+      <HintPath>Assets\Plugins\Arch.AOT.SourceGenerator\System.Composition.Hosting.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Arch">
@@ -527,12 +583,12 @@
       <HintPath>Library\PackageCache\cn.tuanjie.codely.bridge@1.0.72\Plugins\Codely.Newtonsoft.Json.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="NuGetForUnity.PluginAPI">
-      <HintPath>Library\PackageCache\com.github-glitchenzo.nugetforunity@acc1c7bc9e\Editor\PluginAPI\NuGetForUnity.PluginAPI.dll</HintPath>
+    <Reference Include="Arch.AOT.SourceGenerator">
+      <HintPath>Assets\Plugins\Arch.AOT.SourceGenerator\Arch.AOT.SourceGenerator.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Arch.EventBus">
-      <HintPath>Assets\Plugins\Arch.EventBus\Arch.EventBus.dll</HintPath>
+    <Reference Include="NuGetForUnity.PluginAPI">
+      <HintPath>Library\PackageCache\com.github-glitchenzo.nugetforunity@acc1c7bc9e\Editor\PluginAPI\NuGetForUnity.PluginAPI.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.VisualScripting.TextureAssets">
