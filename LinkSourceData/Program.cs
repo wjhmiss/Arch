@@ -33,17 +33,25 @@ class Program
     {
         if (args.Length < 2)
         {
-            Console.WriteLine("用法: LinkSourceData pack <csproj或sln路径> <输出文件夹> [目标框架]");
+            Console.WriteLine("用法: LinkSourceData pack <csproj或sln路径> <输出文件夹> [目标框架] [运行时]");
+            Console.WriteLine();
+            Console.WriteLine("参数:");
+            Console.WriteLine("  csproj或sln路径  项目文件或解决方案文件路径");
+            Console.WriteLine("  输出文件夹       DLL 复制的目标目录");
+            Console.WriteLine("  目标框架         默认 netstandard2.1");
+            Console.WriteLine("  运行时           可选，如 win-x64, win-arm64, linux-x64, osx-x64");
             Console.WriteLine();
             Console.WriteLine("示例:");
             Console.WriteLine("  LinkSourceData pack D:\\Arch\\src\\Arch\\Arch.csproj D:\\Unity\\Assets\\Plugins netstandard2.1");
-            Console.WriteLine("  LinkSourceData pack D:\\Arch\\Arch.sln D:\\Unity\\Assets\\Plugins net6.0");
+            Console.WriteLine("  LinkSourceData pack D:\\Arch\\src\\Arch\\Arch.csproj D:\\Unity\\Assets\\Plugins net8.0 win-x64");
+            Console.WriteLine("  LinkSourceData pack D:\\Arch\\Arch.sln D:\\Unity\\Assets\\Plugins net6.0 linux-x64");
             return 1;
         }
 
         var projectPath = Path.GetFullPath(args[0]);
         var outputDir = Path.GetFullPath(args[1]);
         var targetFramework = args.Length > 2 ? args[2] : "netstandard2.1";
+        var runtime = args.Length > 3 ? args[3] : "win-x64";
 
         // 验证项目文件存在
         if (!File.Exists(projectPath))
@@ -56,37 +64,39 @@ class Program
         Console.WriteLine($"项目: {projectPath}");
         Console.WriteLine($"输出: {outputDir}");
         Console.WriteLine($"框架: {targetFramework}");
+        Console.WriteLine($"运行时: {runtime}");
         Console.WriteLine($"类型: {(isSolution ? "解决方案" : "单个项目")}");
         Console.WriteLine();
 
-        // 1. 构建
-        Console.WriteLine("=== 开始构建 ===");
-        var buildOk = BuildProject(projectPath, targetFramework);
-        if (!buildOk)
+        // 1. 发布
+        Console.WriteLine("=== 开始发布 ===");
+        var publishOk = PublishProject(projectPath, targetFramework, runtime);
+        if (!publishOk)
         {
-            Console.WriteLine("构建失败，终止操作。");
+            Console.WriteLine("发布失败，终止操作。");
             return 1;
         }
-        Console.WriteLine("构建成功！");
+        Console.WriteLine("发布成功！");
         Console.WriteLine();
 
-        // 2. 收集并复制 DLL
-        Console.WriteLine("=== 复制 DLL 到输出目录 ===");
+        // 2. 收集并复制文件
+        Console.WriteLine("=== 复制文件到输出目录 ===");
         var (copiedCount, skippedCount) = isSolution
-            ? CopySolutionOutputs(projectPath, targetFramework, outputDir)
-            : CopyProjectOutput(projectPath, targetFramework, outputDir);
+            ? CopySolutionOutputs(projectPath, targetFramework, outputDir, runtime)
+            : CopyProjectOutput(projectPath, targetFramework, outputDir, runtime);
 
         Console.WriteLine();
         Console.WriteLine("=== 执行结果 ===");
-        Console.WriteLine($"复制 DLL: {copiedCount} 个");
-        Console.WriteLine($"跳过已存在: {skippedCount} 个");
+        Console.WriteLine($"复制文件: {copiedCount} 个");
+        if (skippedCount > 0)
+            Console.WriteLine($"跳过重复: {skippedCount} 个");
 
         // 3. 列出输出目录内容
         Console.WriteLine();
-        Console.WriteLine($"输出目录: {outputDir}");
+        Console.WriteLine($"输出根目录: {outputDir}");
         if (Directory.Exists(outputDir))
         {
-            foreach (var file in Directory.GetFiles(outputDir, "*.dll", SearchOption.AllDirectories).OrderBy(f => f))
+            foreach (var file in Directory.GetFiles(outputDir, "*", SearchOption.AllDirectories).OrderBy(f => f))
             {
                 var rel = Path.GetRelativePath(outputDir, file);
                 var size = new FileInfo(file).Length;
@@ -97,12 +107,12 @@ class Program
         return 0;
     }
 
-    static bool BuildProject(string projectPath, string targetFramework)
+    static bool PublishProject(string projectPath, string targetFramework, string runtime)
     {
         var psi = new ProcessStartInfo
         {
             FileName = "dotnet",
-            Arguments = $"build \"{projectPath}\" -c Release -f {targetFramework}",
+            Arguments = $"publish \"{projectPath}\" -c Release -f {targetFramework} -r {runtime} --nologo",
             RedirectStandardOutput = true,
             RedirectStandardError = true,
             UseShellExecute = false,
@@ -117,6 +127,7 @@ class Program
         // 只显示关键输出
         var lines = output.Split('\n')
             .Where(l => l.Contains("error", StringComparison.OrdinalIgnoreCase) ||
+                        l.Contains("成功", StringComparison.OrdinalIgnoreCase) ||
                         l.Contains("succeeded", StringComparison.OrdinalIgnoreCase) ||
                         l.Contains("failed", StringComparison.OrdinalIgnoreCase))
             .ToList();
@@ -127,7 +138,7 @@ class Program
         if (process.ExitCode != 0)
         {
             if (lines.Count == 0)
-                Console.WriteLine($"  构建输出:\n{output}");
+                Console.WriteLine($"  发布输出:\n{output}");
             if (!string.IsNullOrEmpty(error))
                 Console.WriteLine($"  错误:\n{error}");
         }
@@ -135,44 +146,53 @@ class Program
         return process.ExitCode == 0;
     }
 
-    static (int copied, int skipped) CopyProjectOutput(string csprojPath, string targetFramework, string outputDir)
+    static (int copied, int skipped) CopyProjectOutput(string csprojPath, string targetFramework, string outputDir, string runtime)
     {
         var projectDir = Path.GetDirectoryName(csprojPath)!;
         var projectName = Path.GetFileNameWithoutExtension(csprojPath);
 
-        // 查找构建输出目录
-        var buildOutputDir = Path.Combine(projectDir, "bin", "Release", targetFramework);
-        if (!Directory.Exists(buildOutputDir))
+        // 查找发布输出目录 (bin/Release/{tfm}/{runtime}/publish)
+        var publishOutputDir = Path.Combine(projectDir, "bin", "Release", targetFramework, runtime, "publish");
+        if (!Directory.Exists(publishOutputDir))
         {
-            Console.WriteLine($"  未找到构建输出: {buildOutputDir}");
+            Console.WriteLine($"  未找到发布输出: {publishOutputDir}");
             return (0, 0);
         }
 
-        return CopyDlls(buildOutputDir, outputDir);
+        // 在目标目录下创建以项目名命名的子目录
+        var projectOutputDir = Path.Combine(outputDir, projectName);
+        Console.WriteLine($"  输出子目录: {projectName}/");
+        return CopyDlls(publishOutputDir, projectOutputDir);
     }
 
-    static (int copied, int skipped) CopySolutionOutputs(string slnPath, string targetFramework, string outputDir)
+    static (int copied, int skipped) CopySolutionOutputs(string slnPath, string targetFramework, string outputDir, string runtime)
     {
         var slnDir = Path.GetDirectoryName(slnPath)!;
+        var slnName = Path.GetFileNameWithoutExtension(slnPath);
+
+        // 在目标目录下创建以解决方案名命名的子目录
+        var slnOutputDir = Path.Combine(outputDir, slnName);
+        Console.WriteLine($"  输出子目录: {slnName}/");
+
         int totalCopied = 0, totalSkipped = 0;
 
-        // 查找 sln 目录下所有 bin/Release/{tfm} 目录
-        var binDirs = Directory.EnumerateDirectories(slnDir, "bin", SearchOption.AllDirectories)
-            .Select(bin => Path.Combine(bin, "Release", targetFramework))
+        // 查找 sln 目录下所有 bin/Release/{tfm}/{runtime}/publish 目录
+        var publishDirs = Directory.EnumerateDirectories(slnDir, "bin", SearchOption.AllDirectories)
+            .Select(bin => Path.Combine(bin, "Release", targetFramework, runtime, "publish"))
             .Where(Directory.Exists)
             .ToList();
 
-        // 去重（避免同一个 bin 被多次处理）
+        // 去重（避免同一个 DLL 被多次处理）
         var seen = new HashSet<string>();
 
-        foreach (var binDir in binDirs)
+        foreach (var publishDir in publishDirs)
         {
             // 跳过测试/示例项目的输出
-            var rel = Path.GetRelativePath(slnDir, binDir);
+            var rel = Path.GetRelativePath(slnDir, publishDir);
             if (ShouldFilterPath(rel))
                 continue;
 
-            var (c, s) = CopyDlls(binDir, outputDir, seen);
+            var (c, s) = CopyDlls(publishDir, slnOutputDir, seen);
             totalCopied += c;
             totalSkipped += s;
         }
@@ -185,57 +205,74 @@ class Program
         int copied = 0, skipped = 0;
         seen ??= new HashSet<string>();
 
-        // 只复制 .dll 和 .xml (文档) 文件，排除 .pdb 和测试相关
-        var files = Directory.GetFiles(sourceDir)
-            .Where(f => f.EndsWith(".dll", StringComparison.OrdinalIgnoreCase) ||
-                        f.EndsWith(".xml", StringComparison.OrdinalIgnoreCase))
-            .Where(f => !f.EndsWith(".Test.dll", StringComparison.OrdinalIgnoreCase) &&
-                        !f.EndsWith(".Tests.dll", StringComparison.OrdinalIgnoreCase) &&
-                        !f.EndsWith(".Benchmark.dll", StringComparison.OrdinalIgnoreCase) &&
-                        !f.EndsWith(".Benchmarks.dll", StringComparison.OrdinalIgnoreCase) &&
-                        !f.EndsWith(".Sample.dll", StringComparison.OrdinalIgnoreCase) &&
-                        !f.EndsWith(".Samples.dll", StringComparison.OrdinalIgnoreCase) &&
-                        !Path.GetFileName(f).StartsWith("testhost.", StringComparison.OrdinalIgnoreCase) &&
-                        !Path.GetFileName(f).StartsWith("Microsoft.NET.", StringComparison.OrdinalIgnoreCase) &&
-                        !Path.GetFileName(f).StartsWith("NUnit", StringComparison.OrdinalIgnoreCase) &&
-                        !Path.GetFileName(f).StartsWith("BenchmarkDotNet", StringComparison.OrdinalIgnoreCase))
-            .ToList();
-
         if (!Directory.Exists(outputDir))
             Directory.CreateDirectory(outputDir);
 
-        foreach (var file in files)
+        // 复制所有文件（保持目录结构）
+        foreach (var file in Directory.GetFiles(sourceDir, "*", SearchOption.AllDirectories))
         {
+            var relativePath = Path.GetRelativePath(sourceDir, file);
             var fileName = Path.GetFileName(file);
 
-            // 去重
-            if (seen.Contains(fileName))
+            // 过滤测试/示例/基准测试相关文件
+            if (ShouldFilterFile(fileName, relativePath))
+                continue;
+
+            // 去重（解决方案中多个项目可能有相同依赖）
+            if (seen.Contains(relativePath))
             {
                 skipped++;
                 continue;
             }
-            seen.Add(fileName);
+            seen.Add(relativePath);
 
-            var destFile = Path.Combine(outputDir, fileName);
+            var destFile = Path.Combine(outputDir, relativePath);
+            var destDir = Path.GetDirectoryName(destFile);
+            if (!string.IsNullOrEmpty(destDir) && !Directory.Exists(destDir))
+                Directory.CreateDirectory(destDir);
 
-            // 检查目标是否已存在且内容相同
-            if (File.Exists(destFile))
-            {
-                var srcInfo = new FileInfo(file);
-                var dstInfo = new FileInfo(destFile);
-                if (srcInfo.Length == dstInfo.Length && srcInfo.LastWriteTime == dstInfo.LastWriteTime)
-                {
-                    skipped++;
-                    continue;
-                }
-            }
-
+            // 直接覆盖
             File.Copy(file, destFile, overwrite: true);
-            Console.WriteLine($"  ✓ {fileName}");
+            Console.WriteLine($"  ✓ {relativePath}");
             copied++;
         }
 
         return (copied, skipped);
+    }
+
+    static bool ShouldFilterFile(string fileName, string relativePath)
+    {
+        // 过滤测试/示例/基准测试相关文件
+        var filterPatterns = new[]
+        {
+            ".Test.dll", ".Tests.dll",
+            ".Benchmark.dll", ".Benchmarks.dll",
+            ".Sample.dll", ".Samples.dll"
+        };
+
+        foreach (var pattern in filterPatterns)
+        {
+            if (fileName.EndsWith(pattern, StringComparison.OrdinalIgnoreCase))
+                return true;
+        }
+
+        // 过滤测试相关前缀
+        var filterPrefixes = new[]
+        {
+            "testhost.", "Microsoft.NET.Test.",
+            "NUnit", "BenchmarkDotNet", "xunit", "Moq.", "Shouldly."
+        };
+
+        foreach (var prefix in filterPrefixes)
+        {
+            if (fileName.StartsWith(prefix, StringComparison.OrdinalIgnoreCase))
+                return true;
+        }
+
+        // 检查路径中是否包含测试/示例目录
+        var parts = relativePath.Split(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
+        var filterDirNames = new[] { "Test", "Tests", "Sample", "Samples", "Benchmark", "Benchmarks" };
+        return parts.Any(p => filterDirNames.Any(f => p.Contains(f, StringComparison.OrdinalIgnoreCase)));
     }
 
     static bool ShouldFilterPath(string relativePath)
@@ -410,9 +447,13 @@ class Program
         Console.WriteLine("  在目标文件夹下创建以源文件夹名称命名的子目录");
         Console.WriteLine();
         Console.WriteLine("pack 命令:");
-        Console.WriteLine("  使用 dotnet build 构建项目，复制 DLL 到目标文件夹");
+        Console.WriteLine("  使用 dotnet publish 发布项目，复制所有输出文件到目标文件夹");
+        Console.WriteLine("  在目标文件夹下创建以项目名/解决方案名命名的子目录");
+        Console.WriteLine("  保持原始目录结构，包括所有文件和子目录");
         Console.WriteLine("  默认目标框架: netstandard2.1");
-        Console.WriteLine("  自动过滤测试/示例/基准测试相关的 DLL");
+        Console.WriteLine("  默认运行时: win-x64");
+        Console.WriteLine("  自动过滤测试/示例/基准测试相关的文件");
+        Console.WriteLine("  相同文件直接覆盖");
         Console.WriteLine();
         Console.WriteLine("示例:");
         Console.WriteLine("  # 源码链接");

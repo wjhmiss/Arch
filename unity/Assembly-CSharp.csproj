@@ -579,116 +579,152 @@
       <HintPath>D:\Unity\2022.3.62t11\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="System.IO.Pipelines">
+      <HintPath>Assets\Packages\System.IO.Pipelines.10.0.1\lib\netstandard2.0\System.IO.Pipelines.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System.Threading.Channels">
       <HintPath>Assets\Packages\System.Threading.Channels.8.0.0\lib\netstandard2.1\System.Threading.Channels.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe">
+      <HintPath>Assets\Plugins\Arch\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Composition.Runtime">
       <HintPath>Assets\Packages\System.Composition.Runtime.10.0.1\lib\netstandard2.0\System.Composition.Runtime.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="ReportGeneratorMerged">
-      <HintPath>Library\PackageCache\com.unity.testtools.codecoverage@1.2.6\lib\ReportGenerator\ReportGeneratorMerged.dll</HintPath>
+    <Reference Include="Microsoft.CodeAnalysis.Workspaces">
+      <HintPath>Assets\Packages\Microsoft.CodeAnalysis.Workspaces.Common.5.6.0\lib\netstandard2.0\Microsoft.CodeAnalysis.Workspaces.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Microsoft.CodeAnalysis.CSharp">
-      <HintPath>Assets\Packages\Microsoft.CodeAnalysis.CSharp.5.6.0\lib\netstandard2.0\Microsoft.CodeAnalysis.CSharp.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Collections.Pooled">
-      <HintPath>Assets\Packages\Collections.Pooled.2.0.0-preview.27\lib\netstandard2.1\Collections.Pooled.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Schedulers">
-      <HintPath>Assets\Packages\ZeroAllocJobScheduler.1.1.2\lib\netstandard2.1\Schedulers.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Utf8Json">
-      <HintPath>Assets\Packages\Utf8Json.1.3.7\lib\netstandard2.0\Utf8Json.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="MessagePack.Annotations">
-      <HintPath>Assets\Packages\MessagePack.Annotations.3.1.8\lib\netstandard2.0\MessagePack.Annotations.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Humanizer">
-      <HintPath>Assets\Packages\Humanizer.Core.2.14.1\lib\netstandard2.0\Humanizer.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="System.Runtime.CompilerServices.Unsafe">
-      <HintPath>Assets\Packages\System.Runtime.CompilerServices.Unsafe.6.1.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    <Reference Include="CommunityToolkit.HighPerformance">
+      <HintPath>Assets\Plugins\Arch.LowLevel\CommunityToolkit.HighPerformance.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Composition.Hosting">
       <HintPath>Assets\Packages\System.Composition.Hosting.10.0.1\lib\netstandard2.0\System.Composition.Hosting.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Microsoft.CodeAnalysis.Workspaces">
-      <HintPath>Assets\Packages\Microsoft.CodeAnalysis.Workspaces.Common.5.6.0\lib\netstandard2.0\Microsoft.CodeAnalysis.Workspaces.dll</HintPath>
+    <Reference Include="Arch.AOT.SourceGenerator">
+      <HintPath>Assets\Plugins\Arch.AOT.SourceGenerator\Arch.AOT.SourceGenerator.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="MessagePack">
       <HintPath>Assets\Packages\MessagePack.3.1.8\lib\netstandard2.1\MessagePack.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
-      <HintPath>Library\PackageCache\com.unity.visualscripting@1.9.4\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Microsoft.NET.StringTools">
-      <HintPath>Assets\Packages\Microsoft.NET.StringTools.17.11.4\lib\netstandard2.0\Microsoft.NET.StringTools.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Microsoft.Extensions.ObjectPool">
-      <HintPath>Assets\Packages\Microsoft.Extensions.ObjectPool.10.0.10\lib\netstandard2.0\Microsoft.Extensions.ObjectPool.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Codely.Newtonsoft.Json">
-      <HintPath>Library\PackageCache\cn.tuanjie.codely.bridge@1.0.72\Plugins\Codely.Newtonsoft.Json.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="System.Collections.Immutable">
-      <HintPath>Assets\Packages\System.Collections.Immutable.10.0.1\lib\netstandard2.0\System.Collections.Immutable.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="System.Composition.AttributedModel">
       <HintPath>Assets\Packages\System.Composition.AttributedModel.10.0.1\lib\netstandard2.0\System.Composition.AttributedModel.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Microsoft.CodeAnalysis.CSharp.Workspaces">
-      <HintPath>Assets\Packages\Microsoft.CodeAnalysis.CSharp.Workspaces.5.6.0\lib\netstandard2.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="System.Reflection.Metadata">
-      <HintPath>Assets\Packages\System.Reflection.Metadata.10.0.1\lib\netstandard2.0\System.Reflection.Metadata.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="System.IO.Pipelines">
-      <HintPath>Assets\Packages\System.IO.Pipelines.10.0.1\lib\netstandard2.0\System.IO.Pipelines.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Composition.TypedParts">
       <HintPath>Assets\Packages\System.Composition.TypedParts.10.0.1\lib\netstandard2.0\System.Composition.TypedParts.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Collections.Pooled">
+      <HintPath>Assets\Plugins\Arch.Persistence\Collections.Pooled.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ReportGeneratorMerged">
+      <HintPath>Library\PackageCache\com.unity.testtools.codecoverage@1.2.6\lib\ReportGenerator\ReportGeneratorMerged.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Reflection.TypeExtensions">
+      <HintPath>Assets\Plugins\Arch.AOT.SourceGenerator\System.Reflection.TypeExtensions.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Schedulers">
+      <HintPath>Assets\Plugins\Arch.Relationships\Schedulers.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Humanizer">
+      <HintPath>Assets\Packages\Humanizer.Core.2.14.1\lib\netstandard2.0\Humanizer.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System.Composition.Convention">
       <HintPath>Assets\Packages\System.Composition.Convention.10.0.1\lib\netstandard2.0\System.Composition.Convention.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.CSharp.Workspaces">
+      <HintPath>Assets\Packages\Microsoft.CodeAnalysis.CSharp.Workspaces.5.6.0\lib\netstandard2.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Arch.Relationships">
+      <HintPath>Assets\Plugins\Arch.Relationships\Arch.Relationships.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.CSharp">
+      <HintPath>Assets\Packages\Microsoft.CodeAnalysis.CSharp.5.6.0\lib\netstandard2.0\Microsoft.CodeAnalysis.CSharp.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Arch.System.SourceGenerator">
+      <HintPath>Assets\Plugins\Arch.System.SourceGenerator\Arch.System.SourceGenerator.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Text.Encoding.CodePages">
       <HintPath>Assets\Packages\System.Text.Encoding.CodePages.8.0.0\lib\netstandard2.0\System.Text.Encoding.CodePages.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Microsoft.Bcl.AsyncInterfaces">
-      <HintPath>Assets\Packages\Microsoft.Bcl.AsyncInterfaces.10.0.1\lib\netstandard2.1\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    <Reference Include="Microsoft.NET.StringTools">
+      <HintPath>Assets\Plugins\Arch.Persistence\Microsoft.NET.StringTools.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="CommunityToolkit.HighPerformance">
-      <HintPath>Assets\Packages\CommunityToolkit.HighPerformance.8.2.2\lib\netstandard2.1\CommunityToolkit.HighPerformance.dll</HintPath>
+    <Reference Include="Microsoft.Extensions.ObjectPool">
+      <HintPath>Assets\Packages\Microsoft.Extensions.ObjectPool.10.0.10\lib\netstandard2.0\Microsoft.Extensions.ObjectPool.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Utf8Json">
+      <HintPath>Assets\Packages\Utf8Json.1.3.7\lib\netstandard2.0\Utf8Json.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Microsoft.CodeAnalysis">
       <HintPath>Assets\Packages\Microsoft.CodeAnalysis.Common.5.6.0\lib\netstandard2.0\Microsoft.CodeAnalysis.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MessagePack.Annotations">
+      <HintPath>Assets\Packages\MessagePack.Annotations.3.1.8\lib\netstandard2.0\MessagePack.Annotations.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Arch.System">
+      <HintPath>Assets\Plugins\Arch.System\Arch.System.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces">
+      <HintPath>Assets\Packages\Microsoft.Bcl.AsyncInterfaces.10.0.1\lib\netstandard2.1\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Reflection.Metadata">
+      <HintPath>Assets\Packages\System.Reflection.Metadata.10.0.1\lib\netstandard2.0\System.Reflection.Metadata.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Arch">
+      <HintPath>Assets\Plugins\Arch\Arch.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Collections.Immutable">
+      <HintPath>Assets\Packages\System.Collections.Immutable.10.0.1\lib\netstandard2.0\System.Collections.Immutable.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Arch.LowLevel">
+      <HintPath>Assets\Plugins\Arch\Arch.LowLevel.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Arch.Persistence">
+      <HintPath>Assets\Plugins\Arch.Persistence\Arch.Persistence.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
+      <HintPath>Library\PackageCache\com.unity.visualscripting@1.9.4\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Codely.Newtonsoft.Json">
+      <HintPath>Library\PackageCache\cn.tuanjie.codely.bridge@1.0.72\Plugins\Codely.Newtonsoft.Json.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Arch.EventBus">
+      <HintPath>Assets\Plugins\Arch.EventBus\Arch.EventBus.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="netstandard">

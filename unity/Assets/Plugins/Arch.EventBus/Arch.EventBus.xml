@@ -1,0 +1,271 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Arch.EventBus</name>
+    </assembly>
+    <members>
+        <member name="T:Arch.Bus.EventBus">
+            <summary>
+                The EventBus model
+            </summary>
+        </member>
+        <member name="P:Arch.Bus.EventBus.Namespace">
+            <summary>
+                The namespace.
+            </summary>
+        </member>
+        <member name="F:Arch.Bus.EventBus.Methods">
+            <summary>
+                The <see cref="T:Arch.Bus.Method"/>s of the <see cref="T:Arch.Bus.EventBus"/> "redirecting" the event.
+            </summary>
+        </member>
+        <member name="T:Arch.Bus.Method">
+            <summary>
+                A method inside the eventbus redirecting the event towards the receivers. 
+            </summary>
+        </member>
+        <member name="F:Arch.Bus.Method.RefKind">
+            <summary>
+                The <see cref="F:Arch.Bus.Method.RefKind"/> this method accepts as a param.
+            </summary>
+        </member>
+        <member name="F:Arch.Bus.Method.EventType">
+            <summary>
+                The Event type as a <see cref="T:Microsoft.CodeAnalysis.ITypeSymbol"/> that is being passed to the method and being redirected.
+            </summary>
+        </member>
+        <member name="F:Arch.Bus.Method.EventReceivingMethods">
+            <summary>
+                A list of methods which this <see cref="T:Arch.Bus.Method"/> redirects the event to.
+            </summary>
+        </member>
+        <member name="T:Arch.Bus.ReceivingMethod">
+            <summary>
+                The <see cref="T:Arch.Bus.ReceivingMethod"/> struct
+                represents a method that receives the event (and is marked by the event tag) with its order. 
+            </summary>
+        </member>
+        <member name="F:Arch.Bus.ReceivingMethod.Static">
+            <summary>
+                If the receiving method is static.
+                If not, we are targeting instances and need to handle them differently during generation. 
+            </summary>
+        </member>
+        <member name="F:Arch.Bus.ReceivingMethod.MethodSymbol">
+            <summary>
+                The method symbol of the static event receiver which should be called.
+            </summary>
+        </member>
+        <member name="F:Arch.Bus.ReceivingMethod.Order">
+            <summary>
+                Its order. 
+            </summary>
+        </member>
+        <member name="T:Arch.Bus.EventBusExtensions">
+            <summary>
+            EventBusExtensions
+            </summary>
+        </member>
+        <member name="M:Arch.Bus.EventBusExtensions.RefKindToString(Microsoft.CodeAnalysis.RefKind)">
+            <summary>
+                Convert a <see cref="T:Microsoft.CodeAnalysis.RefKind"/> to its code string equivalent.
+            </summary>
+            <param name="refKind">The <see cref="T:Microsoft.CodeAnalysis.RefKind"/>.</param>
+            <returns>The code string equivalent.</returns>
+        </member>
+        <member name="M:Arch.Bus.EventBusExtensions.AppendEventMethods(System.Text.StringBuilder,System.Collections.Generic.IList{Arch.Bus.Method})">
+            <summary>
+                Appends all methods redirecting events.
+            </summary>
+            <param name="sb">The <see cref="T:System.Text.StringBuilder"/>.</param>
+            <param name="callMethods">The <see cref="T:System.Collections.Generic.IList`1"/> containing the <see cref="T:Arch.Bus.Method"/>s redirecting the event and calling the methods. </param>
+            <returns></returns>
+        </member>
+        <member name="M:Arch.Bus.EventBusExtensions.AppendEventMethod(System.Text.StringBuilder,Arch.Bus.Method)">
+            <summary>
+                Appends all methods redirecting events.
+            </summary>
+            <param name="sb">The <see cref="T:System.Text.StringBuilder"/>.</param>
+            <param name="callMethod">The <see cref="T:System.Collections.Generic.IList`1"/> containing the <see cref="T:Arch.Bus.Method"/>s redirecting the event and calling the methods. </param>
+            <returns></returns>
+        </member>
+        <member name="M:Arch.Bus.EventBusExtensions.MethodCalls(System.Text.StringBuilder,Arch.Bus.Method)">
+            <summary>
+                Appends calls to all event receiving method.
+                <remarks>SomeMethod(...); OtherMethod(...); ...</remarks>
+            </summary>
+            <param name="sb">The <see cref="T:System.Text.StringBuilder"/>.</param>
+            <param name="callMethod">The <see cref="T:Arch.Bus.Method"/> the event call which methods will be called after one another.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Arch.Bus.EventBusExtensions.InstanceReceiverLists(System.Text.StringBuilder,Arch.Bus.Method)">
+            <summary>
+                Appends lists for a certain <see cref="T:Arch.Bus.Method"/> containing one list for each instance (non static) receiving a method.
+                <remarks>List&lt;SomeInstance&gt; SomeInstance_OnSomeEvent_EventType; ...</remarks>
+            </summary>
+            <param name="sb">The <see cref="T:System.Text.StringBuilder"/>.</param>
+            <param name="callMethod">The <see cref="T:Arch.Bus.Method"/> the event call which methods will be called after one another.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Arch.Bus.EventBusExtensions.AppendEventBus(System.Text.StringBuilder,Arch.Bus.EventBus@)">
+            <summary>
+            Appends a <see cref="T:Arch.Bus.EventBus"/> and generates it.
+            </summary>
+            <param name="sb">The <see cref="T:System.Text.StringBuilder"/>.</param>
+            <param name="eventBus">The <see cref="T:Arch.Bus.EventBus"/> itself, used to generate the EventBus in code.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Arch.Bus.Hooks">
+            <summary>
+            Hooks.
+            </summary>
+        </member>
+        <member name="F:Arch.Bus.Hooks.Instances">
+            <summary>
+            Instances.
+            </summary>
+        </member>
+        <member name="T:Arch.Bus.ClassHooks">
+            <summary>
+            Class hooks.
+            </summary>
+        </member>
+        <member name="F:Arch.Bus.ClassHooks.PartialClass">
+            <summary>
+            Partial class.
+            </summary>
+        </member>
+        <member name="F:Arch.Bus.ClassHooks.EventHooks">
+            <summary>
+            Event hooks.
+            </summary>
+        </member>
+        <member name="T:Arch.Bus.EventHook">
+            <summary>
+                The <see cref="T:Arch.Bus.EventHook"/> struct
+                represents a hook for an event from the eventbus inside an class instance.
+            </summary>
+        </member>
+        <member name="F:Arch.Bus.EventHook.EventType">
+            <summary>
+                The event type.
+            </summary>
+        </member>
+        <member name="F:Arch.Bus.EventHook.MethodSymbol">
+            <summary>
+                The method symbol of the static event receiver which should be called.
+            </summary>
+        </member>
+        <member name="T:Arch.Bus.HookExtensions">
+            <summary>
+            Hook extensions.
+            </summary>
+        </member>
+        <member name="M:Arch.Bus.HookExtensions.Hook(System.Text.StringBuilder,System.Collections.Generic.IList{Arch.Bus.EventHook})">
+            <summary>
+                Appends add operations for a set of <see cref="T:Arch.Bus.EventHook"/> to hook the local class instance into the EventBus instance lists for receiving events. 
+                <remarks>EventBus.SomeClass_SomeEvent_SomeEvent.Add(this); ...</remarks>
+            </summary>
+            <param name="sb">The <see cref="T:System.Text.StringBuilder"/>.</param>
+            <param name="receivingMethods">The <see cref="T:System.Collections.Generic.List`1"/> of <see cref="T:Arch.Bus.ReceivingMethod"/> that will be hooked in to receive instance events. </param>
+            <returns></returns>
+        </member>
+        <member name="M:Arch.Bus.HookExtensions.Unhook(System.Text.StringBuilder,System.Collections.Generic.IList{Arch.Bus.EventHook})">
+            <summary>
+                Appends remove operations for a set of <see cref="T:Arch.Bus.EventHook"/> to unhook the local class instance from the EventBus instance lists for receiving events. 
+                <remarks>EventBus.SomeClass_SomeEvent_SomeEvent.Remove(this); ...</remarks>
+            </summary>
+            <param name="sb">The <see cref="T:System.Text.StringBuilder"/>.</param>
+            <param name="receivingMethods">The <see cref="T:System.Collections.Generic.List`1"/> of <see cref="T:Arch.Bus.ReceivingMethod"/> that will be hooked in to receive instance events. </param>
+            <returns></returns>
+        </member>
+        <member name="M:Arch.Bus.HookExtensions.AppendHookList(System.Text.StringBuilder,System.Collections.Generic.List{Arch.Bus.ClassHooks})">
+            <summary>
+                Appends a <see cref="T:System.Collections.Generic.List`1"/> of <see cref="M:Arch.Bus.HookExtensions.Hook(System.Text.StringBuilder,System.Collections.Generic.IList{Arch.Bus.EventHook})"/> and generates proper hook and unhook methods for their partial class instances.
+            </summary>
+            <param name="sb">The <see cref="T:System.Text.StringBuilder"/>.</param>
+            <param name="hooks">The <see cref="T:System.Collections.Generic.List`1"/> of <see cref="M:Arch.Bus.HookExtensions.Hook(System.Text.StringBuilder,System.Collections.Generic.IList{Arch.Bus.EventHook})"/> itself, used to generate the hooks in code.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Arch.Bus.HookExtensions.AppendHooks(System.Text.StringBuilder,Arch.Bus.Hooks@)">
+            <summary>
+                Appends a <see cref="T:Arch.Bus.Hooks"/> and generates it.
+            </summary>
+            <param name="sb">The <see cref="T:System.Text.StringBuilder"/>.</param>
+            <param name="hooks">The <see cref="T:Arch.Bus.Hooks"/> itself, used to generate the hooks in code.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Arch.Bus.MethodSymbolExtensions">
+            <summary>
+            Method symbol extensions.
+            </summary>
+        </member>
+        <member name="M:Arch.Bus.MethodSymbolExtensions.GetAttributeData(Microsoft.CodeAnalysis.IMethodSymbol,System.String)">
+            <summary>
+                Searches attributes of a <see cref="T:Microsoft.CodeAnalysis.IMethodSymbol"/> and returns the first one found.
+            </summary>
+            <param name="ms">The <see cref="T:Microsoft.CodeAnalysis.IMethodSymbol"/> instance.</param>
+            <param name="name">The attributes name.</param>
+            <returns>The attribute wrapped in an <see cref="T:Microsoft.CodeAnalysis.AttributeData"/>.</returns>
+        </member>
+        <member name="M:Arch.Bus.MethodSymbolExtensions.GetAttributeTypes(Microsoft.CodeAnalysis.AttributeData,System.Collections.Generic.List{Microsoft.CodeAnalysis.ITypeSymbol})">
+            <summary>
+                Gets all the types of a <see cref="T:Microsoft.CodeAnalysis.AttributeData"/> as <see cref="T:Microsoft.CodeAnalysis.ITypeSymbol"/>s and adds them to a list.
+                If the attribute is generic it will add the generic parameters, if its non generic it will add the non generic types from the constructor.
+            </summary>
+            <param name="data">The <see cref="T:Microsoft.CodeAnalysis.AttributeData"/>.</param>
+            <param name="array">The <see cref="T:System.Collections.Generic.List`1"/> where the found <see cref="T:Microsoft.CodeAnalysis.ITypeSymbol"/>s are added to.</param>
+        </member>
+        <member name="T:Arch.Bus.QueryGenerator">
+            <summary>
+            Query generator.
+            </summary>
+        </member>
+        <member name="M:Arch.Bus.QueryGenerator.Initialize(Microsoft.CodeAnalysis.IncrementalGeneratorInitializationContext)">
+            <inheritdoc cref="M:Microsoft.CodeAnalysis.IIncrementalGenerator.Initialize(Microsoft.CodeAnalysis.IncrementalGeneratorInitializationContext)"/>
+        </member>
+        <member name="M:Arch.Bus.QueryGenerator.GetMethodSymbolIfAttributeof(Microsoft.CodeAnalysis.GeneratorSyntaxContext,System.String)">
+            <summary>
+                Returns a <see cref="T:Microsoft.CodeAnalysis.CSharp.Syntax.MethodDeclarationSyntax"/> if its annotated with an attribute of <paramref name="name"/>.
+            </summary>
+            <param name="context">Its <see cref="T:Microsoft.CodeAnalysis.GeneratorSyntaxContext"/>.</param>
+            <param name="name">The attributes name.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Arch.Bus.QueryGenerator.MapMethodToEventType(Microsoft.CodeAnalysis.IMethodSymbol)">
+            <summary>
+                Maps the <see cref="T:Microsoft.CodeAnalysis.IMethodSymbol"/> to its <see cref="T:Microsoft.CodeAnalysis.IParameterSymbol"/> for organisation. 
+            </summary>
+            <param name="methodSymbol"></param>
+        </member>
+        <member name="M:Arch.Bus.QueryGenerator.MapMethodToContainingType(Microsoft.CodeAnalysis.IMethodSymbol)">
+            <summary>
+                Maps the <see cref="T:Microsoft.CodeAnalysis.IMethodSymbol"/> to its <see cref="T:Microsoft.CodeAnalysis.ITypeSymbol"/> for organisation. 
+            </summary>
+            <param name="methodSymbol"></param>
+        </member>
+        <member name="M:Arch.Bus.QueryGenerator.PrepareEventBus">
+            <summary>
+                Prepares the <see cref="T:Arch.Bus.EventBus"/> by convertings the <see cref="F:Arch.Bus.QueryGenerator._eventTypeToReceivingMethods"/> to the eventbus model. 
+            </summary>
+        </member>
+        <member name="M:Arch.Bus.QueryGenerator.PrepareHooks">
+            <summary>
+                Prepares the <see cref="T:Arch.Bus.Hooks"/> by convertings the <see cref="F:Arch.Bus.QueryGenerator._containingTypeToReceivingMethods"/> to the hooks model. 
+            </summary>
+        </member>
+        <member name="M:Arch.Bus.QueryGenerator.Generate(Microsoft.CodeAnalysis.Compilation,System.Collections.Immutable.ImmutableArray{Microsoft.CodeAnalysis.CSharp.Syntax.MethodDeclarationSyntax},Microsoft.CodeAnalysis.SourceProductionContext)">
+            <summary>
+                Generates queries and partial classes for the found marked methods.
+            </summary>
+            <param name="compilation">The <see cref="T:Microsoft.CodeAnalysis.Compilation"/>.</param>
+            <param name="methods">The <see cref="T:System.Collections.Immutable.ImmutableArray`1"/> array, the methods which we will generate queries and classes for.</param>
+            <param name="context">The <see cref="T:Microsoft.CodeAnalysis.SourceProductionContext"/>.</param>
+        </member>
+        <member name="T:Arch.Bus.QueryGenerator.Comparer">
+            <summary>
+            Compares <see cref="T:Microsoft.CodeAnalysis.CSharp.Syntax.MethodDeclarationSyntax"/>s to remove duplicates. 
+            </summary>
+        </member>
+    </members>
+</doc>
