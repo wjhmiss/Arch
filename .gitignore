@@ -8,7 +8,8 @@ bin/
 *.csproj.meta
 *.sln.meta
 *.dll.meta
-
+unity/.vs
+unity/.codely-cli
 # Build artifacts
 Build/
 build/
