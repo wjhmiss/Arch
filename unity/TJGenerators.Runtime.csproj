@@ -439,16 +439,8 @@
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.9.4\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="System.Text.Encoding.CodePages">
-      <HintPath>Assets\Plugins\Arch.AOT.SourceGenerator\System.Text.Encoding.CodePages.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="CommunityToolkit.HighPerformance">
       <HintPath>Assets\Plugins\Arch.LowLevel\CommunityToolkit.HighPerformance.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Microsoft.CodeAnalysis.CSharp.Workspaces">
-      <HintPath>Assets\Plugins\Arch.AOT.SourceGenerator\Microsoft.CodeAnalysis.CSharp.Workspaces.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="MessagePack">
@@ -545,10 +537,6 @@
     </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces">
       <HintPath>Assets\Plugins\Arch.Persistence\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Microsoft.CodeAnalysis.Workspaces">
-      <HintPath>Assets\Plugins\Arch.AOT.SourceGenerator\Microsoft.CodeAnalysis.Workspaces.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Arch.System">
